@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" target="_blank">Repository menu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRepositoryMenu" aria-controls="navbarRepositoryMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarRepositoryMenu">
+            <ul class="navbar-nav mr-auto">
+                {% if site.use_github_wiki %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ site.github.repository_url }}/wiki/_new" target="_blank">Add new</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.github.repository_url }}/wiki/{{url | remove: '.html' | append: ''}}/_edit" target="_blank">Edit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.github.repository_url }}/wiki/{{url | remove: '.html' | append: ''}}/_history" target="_blank">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.github.repository_url }}/wiki/{{url | remove: '.html' | append: '.md'}}/" target="_blank">Source</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.github.repository_url }}/new/{{site.git_branch | escape}}?filename={{ site.site_root | default: '/' }}{{ site.wiki_folder }}/" target="_blank">Add new</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.github.repository_url }}/edit/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}" target="_blank">Edit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.github.repository_url }}/blob/{{site.git_branch | escape}}/{{ site.site_root | default: '/' }}{{page.path | escape}}">Delete</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
