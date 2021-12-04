@@ -8,3 +8,8 @@ h1 {
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
+
+code {
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: #DD4A48;
+}
